@@ -28,12 +28,34 @@ body {
 }
 
 .shop-now-button {
-    background: black;
-    color: white;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: #000;            /* Solid black */
+    color: #FFD700;              /* Yellow text for contrast */
     min-width: 260px;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;          /* Slightly rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    transition: all 0.3s ease;   /* Smooth hover animation */
 }
 
-.btn-black {
+/* Hover effects to make it interactive and catchy */
+.shop-now-button:hover {
+    background: #222;           /* Darker black on hover */
+    color: #FFD700;             /* Keep yellow text */
+    transform: translate(-50%, -50%) scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);   /* Stronger shadow */
+}
+
+/* .btn-black {
     background: black;
     color: white;
 }
@@ -46,11 +68,11 @@ body {
 .btn-black:focus {
     background: #222;
     color: white;
-}
+} */
 
-.text-black {
+/* .text-black {
     color: #000 !important;
-}
+} */
 
 .border-black {
     border: 1px solid black !important;
@@ -92,16 +114,5 @@ body {
 
     .header-container {
         padding-top: 164px;
-    }
-}
-
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
-    body {
-        height: calc(100vh - 116px);
     }
 }

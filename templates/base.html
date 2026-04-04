@@ -26,7 +26,7 @@
 
   {% block corejs %}
   <!-- Add your kit code -->
-  <script src="https://kit.fontawesome.com/2d77270c97.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com<ADD YOUR KIT CODE HERE>.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -40,7 +40,7 @@
   {% block extra_js %}
   {% endblock %}
 
-  <title>Boutique Ado {% block extra_title %}{% endblock %}</title>
+  <title>Luckies African Shop Dublin{% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -48,11 +48,12 @@
     <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
-          <h2 class="logo-font text-black my-0"><strong>LUCKY AFRICAN</strong> SHOP</h2>
+          <h2 class="logo-font text-black my-0"><strong>Luckies African Shop Dublin</strong> </h2>
         </a>
       </div>
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-        <form method="GET" action="">
+        <form method="GET" action="{% url 'products' %}">
+          {% csrf_token %}
           <div class="input-group w-100">
             <input class="form-control border border-black rounded-0" type="text" name="q"
               placeholder="Search our site">
@@ -95,9 +96,9 @@
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
                   {% if grand_total %}
-                    ${{ grand_total|floatformat:2 }}
+                  ${{ grand_total|floatformat:2 }}
                   {% else %}
-                    $0.00
+                  $0.00
                   {% endif %}
                 </p>
               </div>
@@ -106,7 +107,7 @@
         </ul>
       </div>
     </div>
-     <div class="row bg-white">
+    <div class="row bg-white">
       <nav class="navbar navbar-expand-lg navbar-light w-100">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
           aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">

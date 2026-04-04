@@ -17,16 +17,17 @@
                 Categories
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Meat &amp; Fish</a>
-                <a href="" class="dropdown-item">African Fresh Vegetables</a>
-                <a href="" class="dropdown-item">Dried Fish &amp; Shrimps</a>
-                <a href="" class="dropdown-item">Dried Leaves &amp; Seeds / Herbs</a>
-                <a href="" class="dropdown-item">Seafood</a>
-                <a href="" class="dropdown-item">Garri</a>
-                <a href="" class="dropdown-item">Beans</a>
-                <a href="" class="dropdown-item">Yam</a>
-                <a href="" class="dropdown-item">Poultry</a>
-                <a href="" class="dropdown-item">Rice</a>
+              <a href="{% url 'products' %}?category=beef,fish" class="dropdown-item">Meat & Fish</a>
+<a href="{% url 'products' %}?category=african_fresh_vegetables" class="dropdown-item">African Fresh Vegetables</a>
+<a href="{% url 'products' %}?category=dried_fish" class="dropdown-item">Dried Fish & Shrimps</a>
+<a href="{% url 'products' %}?category=dried_leaves" class="dropdown-item">Dried Leaves & Seeds / Herbs</a>
+<a href="{% url 'products' %}?category=seafood" class="dropdown-item">Seafood</a>
+<a href="{% url 'products' %}?category=garri" class="dropdown-item">Garri</a>
+<a href="{% url 'products' %}?category=beans" class="dropdown-item">Beans</a>
+<a href="{% url 'products' %}?category=yam" class="dropdown-item">Yam</a>
+<a href="{% url 'products' %}?category=poultry" class="dropdown-item">Poultry</a>
+<a href="{% url 'products' %}?category=rice" class="dropdown-item">Rice</a>
+<a href="{% url 'products' %}?category=Tomatoes" class="dropdown-item">Tomatoes</a>
             </div>
         </li>
 
@@ -36,9 +37,9 @@
                 Drinks
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Nigerian Soft Drinks</a>
-                <a href="" class="dropdown-item">Wines</a>
-                <a href="" class="dropdown-item">Herbal Drinks</a>
+                <a href="{% url 'products' %}?category=nigerian_soft_drinks" class="dropdown-item">Nigerian Soft Drinks</a>
+<a href="{% url 'products' %}?category=wines" class="dropdown-item">Wines</a>
+<a href="{% url 'products' %}?category=herbal_drinks" class="dropdown-item">Herbal Drinks</a>
             </div>
         </li>
 
@@ -48,9 +49,9 @@
                 Gadgets
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Phones</a>
-                <a href="" class="dropdown-item">Laptops</a>
-                <a href="" class="dropdown-item">Speakers</a>
+                <a href="{% url 'products' %}?category=phones" class="dropdown-item">Phones</a>
+<a href="{% url 'products' %}?category=laptops" class="dropdown-item">Laptops</a>
+<a href="{% url 'products' %}?category=speakers" class="dropdown-item">Speakers</a>
             </div>
         </li>
 
@@ -59,10 +60,10 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+<a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+<a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+<a href="{% url 'products' %}?category=all_specials" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
