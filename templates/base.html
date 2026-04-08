@@ -4,54 +4,44 @@
 <html lang="en">
 
 <head>
-
   {% block meta %}
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% endblock %}
 
-  {% block extra_meta %}
-  {% endblock %}
-
   {% block corecss %}
+  <!-- Bootstrap 4 CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'checkout/checkout.css' %}">
   {% endblock %}
 
-  {% block extra_css %}
-  {% endblock %}
+  {% block extra_css %}{% endblock %}
 
-  {% block corejs %}
-  <!-- Add your kit code -->
-  <script src="https://kit.fontawesome.com/2d77270c97.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-    <script src="https://js.stripe.com/dahlia/stripe.js"></script>
-  {% endblock %}
-
-  {% block extra_js %}
-  {% endblock %}
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 
   <title>African Shop {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="container-fluid fixed-top">
+    <!-- Top nav -->
     <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
         <a href="{% url 'home' %}" class="nav-link main-logo-link">
           <h2 class="logo-font text-black my-0"><strong>African </strong> Shop</h2>
         </a>
       </div>
+
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <form method="GET" action="{% url 'products' %}">
           {% csrf_token %}
@@ -60,16 +50,16 @@
               placeholder="Search our site">
             <div class="input-group-append">
               <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                <span class="icon">
-                  <i class="fas fa-search"></i>
-                </span>
+                <span class="icon"><i class="fas fa-search"></i></span>
               </button>
             </div>
           </div>
         </form>
       </div>
+
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+          <!-- User Account Dropdown -->
           <li class="list-inline-item dropdown">
             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
@@ -80,26 +70,29 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
-              {% if request.user.is_superuser %}
-              <a href="" class="dropdown-item">Product Management</a>
-              {% endif %}
-              <a href="" class="dropdown-item">My Profile</a>
-              <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% if request.user.is_superuser %}
+                  <a href="" class="dropdown-item">Product Management</a>
+                {% endif %}
+                <a href="" class="dropdown-item">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
               {% else %}
-              <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-              <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
               {% endif %}
             </div>
           </li>
+
+          <!-- Shopping Bag -->
           <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+              href="{% url 'view_bag' %}">
               <div class="text-center">
                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                 <p class="my-0">
                   {% if grand_total %}
-                  ${{ grand_total|floatformat:2 }}
+                    ${{ grand_total|floatformat:2 }}
                   {% else %}
-                  $0.00
+                    $0.00
                   {% endif %}
                 </p>
               </div>
@@ -108,6 +101,8 @@
         </ul>
       </div>
     </div>
+
+    <!-- Navbar -->
     <div class="row bg-white">
       <nav class="navbar navbar-expand-lg navbar-light w-100">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
@@ -118,6 +113,8 @@
         {% include 'includes/main-nav.html' %}
       </nav>
     </div>
+
+    <!-- Delivery Banner -->
     <div id="delivery-banner" class="row text-center">
       <div class="col bg-black text-white">
         <h4 class="logo-font my-1">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>
@@ -125,39 +122,58 @@
     </div>
   </header>
 
-   {% if messages %}
+  <!-- Messages / Toasts -->
+  {% if messages %}
   <div class="message-container">
-    
-      {% for message in messages %}
-          {% with message.level as level %}
-              {% if level == 40 %}
-                  {% include 'includes/toasts/toast_error.html' %}
-              {% elif level == 30 %}
-                  {% include 'includes/toasts/toast_warning.html' %}
-              {% elif level == 25 %}
-                  {% include 'includes/toasts/toast_success.html' %}
-              {% else %}
-                  {% include 'includes/toasts/toast_info.html' %}
-              {% endif %}
-          {% endwith %}
-      {% endfor %}
+    {% for message in messages %}
+      {% with message.level as level %}
+        {% if level == 40 %}
+          {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+          {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+          {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+          {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+      {% endwith %}
+    {% endfor %}
   </div>
   {% endif %}
 
-  {% block page_header %}
+  <!-- Page content -->
+  {% block page_header %}{% endblock %}
+  {% block content %}{% endblock %}
+
+  <!-- JS Scripts at the end for proper Bootstrap functionality -->
+  {% block corejs %}
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/2d77270c97.js" crossorigin="anonymous"></script>
+
+  <!-- jQuery first -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+  <!-- Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
   {% endblock %}
 
-  {% block content %}
-  {% endblock %}
+  {% block extra_js %}{% endblock %}
 
+  <!-- Toast initialization -->
   {% block postloadjs %}
-
   <script type="text/javascript">
     $('.toast').toast('show');
   </script>
-
   {% endblock %}
 
 </body>
-
-</html
+</html>
