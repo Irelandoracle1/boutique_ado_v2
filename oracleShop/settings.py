@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'checkout',
     'crispy_forms',
     'profiles',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +73,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'oracleShop.urls'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {
@@ -189,3 +191,6 @@ STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 
+DJANGO_COUNTRIES_FLAG_URL = 'flags/{code}.png'
+
+DJANGO_COUNTRIES_FLAG_URL = ''
