@@ -50,13 +50,16 @@
 
          <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Gadgets
+                African Foods
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'products' %}?category=Gadgets" class="dropdown-item">Phones</a>
-<a href="{% url 'products' %}?category=laptops" class="dropdown-item">Laptops</a>
-<a href="{% url 'products' %}?category=speakers" class="dropdown-item">Speakers</a>
-            </div>
+           <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+    <a href="{% url 'products' %}?category=African Foods" class="dropdown-item">Nigerian Food</a>
+    <a href="{% url 'products' %}?category=Ghana Foods" class="dropdown-item">Ghana Food</a>
+    <a href="{% url 'products' %}?category=Cameroon Foods" class="dropdown-item">Cameroon Food</a>
+    <a href="{% url 'products' %}?category=South African" class="dropdown-item">South African Food</a>
+    <a href="{% url 'products' %}?category=Ethopian Foods" class="dropdown-item">Ethopian Food</a>
+</div>
+
         </li>
 
         <li class="nav-item dropdown">
@@ -65,9 +68,9 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
-<a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
-<a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
-<a href="{% url 'products' %}?category=all_specials" class="dropdown-item">All Specials</a>
+<a href="{% url 'products' %}?category=Deals" class="dropdown-item">Deals</a>
+<a href="{% url 'products' %}?category=Clearance" class="dropdown-item">Clearance</a>
+
             </div>
         </li>
     </ul>
