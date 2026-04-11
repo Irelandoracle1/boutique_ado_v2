@@ -11,8 +11,8 @@ class UserProfileForm(forms.ModelForm):
 
         # 🔥 FIX: force proper country widget (prevents BlankChoiceIterator crash)
         widgets = {
-            'default_country': CountrySelectWidget(),
-        }
+    'default_country': forms.Select(),
+}
 
     def __init__(self, *args, **kwargs):
         """
