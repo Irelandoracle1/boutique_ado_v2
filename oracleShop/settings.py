@@ -190,7 +190,8 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL= 'nairajnr1@gmail.com'
 
-DJANGO_COUNTRIES_FLAG_URL = 'flags/{code}.png'
 
-DJANGO_COUNTRIES_FLAG_URL = ''
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
