@@ -1,7 +1,6 @@
 from django import forms
 from .models import UserProfile
-from django_countries.widgets import CountrySelectWidget
-from django_countries.fields import CountryField
+
 
 
 class UserProfileForm(forms.ModelForm):
