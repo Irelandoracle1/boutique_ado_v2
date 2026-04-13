@@ -2,25 +2,14 @@ html {
     height: 100%;
 }
 
-.hero {
-    background: url("/static/images/homepage_background_cropped.jpg") no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-}
-
 body {
-    /* background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed; */
-    /* background: url('/static/images/homepage_background_cropped.jpg') no-repeat center center fixed; */
-    background: url('/static/images/homepage_background_cropped.jpg') no-repeat center center fixed;
+    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
 }
-body {
-    border: 10px solid red !important;
-}
+
 /* from Bulma */
 .icon {
     align-items: center;
