@@ -5,4 +5,4 @@ __pycache__/
 *.pyc
 db.sqlite3
 .env
-example_env.py
+env.py
