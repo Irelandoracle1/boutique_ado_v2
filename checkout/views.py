@@ -32,12 +32,13 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    print("Hooooooooooooooooooooooooo")
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
-
+        
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -89,6 +90,7 @@ def checkout(request):
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
+        print("Worldddddddddddddddddddddddddddddddddd")
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
@@ -102,8 +104,8 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
         if request.user.is_authenticated:
+            
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
@@ -120,11 +122,13 @@ def checkout(request):
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:
+            
             order_form = OrderForm()
 
         # in the video, the below code is not indented properly
         # this is the correct indentation
         if not stripe_public_key:
+            
             messages.warning(request, 'Stripe public key is missing. \
                 Did you forget to set it in your environment?')
 
@@ -134,8 +138,9 @@ def checkout(request):
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
         }
-
+       
         return render(request, template, context)
+    
         # end of the corrected indentation
 
 

@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import dj_database_url
+import env
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -232,13 +233,16 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 FREE_DELIVERY_THRESHOLD = 250
 STANDARD_DELIVERY_PERCENTAGE = 10
 
-STRIPE_CURRENCY = "usd"
-STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
-STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
-STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", "")
 
-# ---------------------------------------------------
-# DEFAULT AUTO FIELD
-# ---------------------------------------------------
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+
+
+
+DEFAULT_FROM_EMAIL = 'oracleshop@example.com'
+
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
